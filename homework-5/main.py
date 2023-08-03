@@ -1,8 +1,8 @@
 from src.keyboard import Keyboard
 
 if __name__ == '__main__':
-    kb = Keyboard('Dark Project KD87A', 9600, 5)
-    assert str(kb) == "Dark Project KD87A"
+    kb = Keyboard('Dark Project KD87A', 9600, 0.05, 5)
+    assert str(kb) == "Keyboard('Dark Project KD87A', 9600, 0.05, 5)"
 
     assert str(kb.language) == "EN"
 
@@ -14,4 +14,3 @@ if __name__ == '__main__':
     assert str(kb.language) == "RU"
 
     kb.language = 'CH'
-    # AttributeError: property 'language' of 'Keyboard' object has no setter

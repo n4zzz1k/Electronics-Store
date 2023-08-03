@@ -1,12 +1,7 @@
 class Item:
-    pay_rate = 1.2  # уровень цен (наценка 20%)
-    all_items = []  # список всех товаров
+    pay_rate = 1.2
+    all_items = []
 
-    def __init__(self, name, price, discount, quantity):
-        self._name = name
-        self._price = price
-        self.discount = discount
-        self.quantity = quantity
     def __init__(self, name, price, discount, quantity):
         self._name = name
         self._price = price
@@ -60,3 +55,9 @@ class Item:
 
     def __str__(self):
         return self.name
+
+    def __add__(self, other):
+        if isinstance(other, Item):
+            return self.quantity + other.quantity
+        else:
+            raise TypeError("Нельзя сложить экземпляры разных классов.")

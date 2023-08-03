@@ -6,7 +6,7 @@ def test_calculate_total_price():
 
 def test_apply_discount():
     item = Item("Телефон", 10000, 5, 1)
-    item.apply_discount(0.2)  # 20% discount
+    item.apply_discount(0.2)  # 20% скидка
     assert item.price == 8000
 
 def test_name_length_limit():

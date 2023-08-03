@@ -7,6 +7,11 @@ class Item:
         self._price = price
         self.discount = discount
         self.quantity = quantity
+    def __init__(self, name, price, discount, quantity):
+        self._name = name
+        self._price = price
+        self.discount = discount
+        self.quantity = quantity
 
     @property
     def name(self):
@@ -49,3 +54,9 @@ class Item:
     @staticmethod
     def string_to_number(value):
         return int(float(value))
+
+    def __repr__(self):
+        return f"Item('{self.name}', {self.price}, {self.discount}, {self.quantity})"
+
+    def __str__(self):
+        return self.name

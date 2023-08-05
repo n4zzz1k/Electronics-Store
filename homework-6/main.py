@@ -1,10 +1,12 @@
-from src.item import Item
+# main.py
+from src.item import Item, InstantiateCSVError
 
 if __name__ == '__main__':
-    # Файл items.csv отсутствует.
-    Item.instantiate_from_csv()
-    # FileNotFoundError: Отсутствует файл item.csv
-
-    # В файле items.csv удалена последняя колонка.
-    Item.instantiate_from_csv()
-    # InstantiateCSVError: Файл item.csv поврежден
+    try:
+        Item.instantiate_from_csv()
+        for item in Item.all_items:
+            print(f"Item: {item.name}, Price: {item.price}")
+    except InstantiateCSVError as e:
+        print(f"Error: {e}")
+    except FileNotFoundError as e:
+        print(f"Error: {e}")
